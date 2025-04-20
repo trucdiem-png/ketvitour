@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sea Trip Travel - Tour Du Lịch Hè</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* --- Cài đặt chung --- */
+body {
+    font-family: Arial, Helvetica, sans-serif; /* Hoặc font bạn muốn */
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #fff;
+    line-height: 1.6;
+}
+
+.page-container {
+    max-width: 1200px; /* Giới hạn chiều rộng nội dung */
+    margin: 0 auto; /* Căn giữa trang */
+    padding: 0 15px; /* Padding hai bên */
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
+/* ========== CSS CHO PHẦN HEADER MỚI ========== */
+.main-header {
+    display: flex;
+    justify-content: space-between; /* Đẩy logo và nav ra 2 bên */
+    align-items: center; /* Căn giữa logo và nav theo chiều dọc */
+    padding: 20px 0; /* Padding trên dưới cho header */
+    border-bottom: 1px solid #eee; /* Đường kẻ mờ phía dưới */
+    margin-bottom: 40px; /* Khoảng cách dưới header */
+}
+
+.logo img {
+    display: block; /* Loại bỏ khoảng trắng thừa dưới ảnh */
+    max-height: 50px; /* Giới hạn chiều cao logo - điều chỉnh nếu cần */
+    width: auto; /* Giữ tỷ lệ */
+}
+
+.main-nav ul {
+    list-style: none; /* Bỏ dấu chấm đầu dòng */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Sắp xếp các mục menu nằm ngang */
+    gap: 30px; /* Khoảng cách giữa các mục menu */
+}
+
+.main-nav a {
+    text-decoration: none; /* Bỏ gạch chân link */
+    color: #333; /* Màu chữ menu */
+    font-size: 1em; /* Cỡ chữ menu */
+    transition: color 0.3s ease; /* Hiệu ứng chuyển màu khi hover */
+}
+
+.main-nav a:hover {
+    color: #007bff; /* Màu chữ khi hover (ví dụ: xanh dương) */
+}
+
+/* ========== CSS CHO PHẦN TIÊU ĐỀ MỚI ========== */
+.hero-title-section {
+    text-align: center; /* Căn giữa tiêu đề */
+    padding: 40px 0; /* Khoảng cách trên dưới */
+    margin-bottom: 40px; /* Khoảng cách dưới tiêu đề */
+}
+
+.hero-title {
+    font-family: 'Times New Roman', Times, serif; /* Font chữ giống hình ảnh (serif) */
+    font-size: 3.2em; /* Cỡ chữ lớn - điều chỉnh nếu cần */
+    color: #222; /* Màu chữ đậm hơn một chút */
+    letter-spacing: 2px; /* Giãn cách chữ */
+    text-transform: uppercase; /* VIẾT HOA */
+    font-weight: bold; /* In đậm */
+    margin-bottom: 0; /* Bỏ margin dưới mặc định của h1 */
+}
+
+
+/* ========== CSS CHO NỘI DUNG CŨ (Giữ nguyên và điều chỉnh nếu cần) ========== */
+
+/* --- Phần Giá trị cốt lõi --- */
+.values-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px 30px;
+    padding: 40px 0; /* Điều chỉnh padding nếu cần sau khi thêm header */
+    /* border-bottom: 1px solid #eee;  Xóa hoặc giữ lại tùy ý */
+    margin-bottom: 40px;
+}
+
+.value-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.value-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    border: 4px solid #f0f0f0;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    background-color: #ccc; /* Màu placeholder */
+}
+.icon-pro { background-color: #ffdd57; }
+.icon-creative { background-color: #4fc3f7; }
+.icon-trust { background-color: #f48fb1; }
+.icon-exp { background-color: #e57373; }
+.icon-safe { background-color: #9575cd; }
+.icon-price { background-color: #a5d6a7; }
+
+.value-text h3 {
+    font-size: 1.3em;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.value-text p {
+    font-size: 0.95em;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* --- Phần Banner Hồng --- */
+.banner {
+    background-color: #0084ff;
+    color: #fff;
+    text-align: center;
+    padding: 50px 20px;
+    /* Các margin âm này dùng để banner tràn ra khỏi padding của .page-container */
+    /* Xem xét lại nếu bạn muốn banner bị giới hạn chiều rộng */
+    margin-left: -15px;
+    margin-right: -15px;
+    margin-bottom: 40px; /* Thêm khoảng cách dưới banner */
+}
+
+.banner h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+.banner h1 {
+     font-size: 2.8em;
+     margin-bottom: 0;
+     font-weight: bold;
+     text-transform: uppercase;
+}
+
+/* --- Phần Tour Hè --- */
+.tours-section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.tours-main-title {
+    font-size: 2.5em;
+    color: #e53935;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.tours-subtitle {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tours-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+/* --- Phần Tour Hè (Cập nhật & Bổ sung) --- */
+.tours-section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.tours-main-title {
+    font-size: 2.5em;
+    color: #e53935; /* Màu đỏ cam */
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.tours-subtitle {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tours-grid {
+    display: grid;
+    /* grid-template-columns: repeat(4, 1fr); */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Điều chỉnh minmax nếu cần */
+    gap: 30px; /* Khoảng cách giữa các tour */
+}
+
+.tour-item {
+    border: 1px solid #eee; /* Viền mờ bao quanh */
+    border-radius: 8px; /* Bo góc */
+    overflow: hidden; /* Ẩn phần thừa */
+    background-color: #fff; /* Nền trắng */
+    text-align: left; /* Căn trái nội dung text */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Đổ bóng nhẹ */
+    display: flex; /* Sử dụng flexbox cho bố cục bên trong */
+    flex-direction: column; /* Sắp xếp ảnh trên nội dung */
+}
+
+.tour-image-container {
+    position: relative; /* Để định vị các overlay */
+    line-height: 0; /* Loại bỏ khoảng trắng thừa dưới ảnh */
+}
+
+.tour-image-container img {
+    width: 100%; /* Ảnh chiếm toàn bộ chiều rộng */
+    height: 200px; /* Đặt chiều cao cố định cho ảnh - ĐIỀU CHỈNH NẾU CẦN */
+    object-fit: cover; /* Cắt ảnh để vừa khung, giữ tỷ lệ */
+    display: block;
+}
+
+.discount-label {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #00bfff; /* Màu hồng */
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 0.85em; /* Chữ nhỏ hơn */
+    font-weight: bold;
+    z-index: 2; /* Nằm trên ảnh và overlay */
+}
+
+/* --- Định dạng các Overlay trên ảnh (Placeholder) --- */
+/* Bạn cần tinh chỉnh vị trí (top, bottom, left, right) và background cho phù hợp */
+.image-overlay {
+    position: absolute;
+    color: #fff;
+    z-index: 1;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Đổ bóng chữ cho dễ đọc */
+}
+
+.overlay-logo {
+    top: 15px;
+    right: 15px;
+    background-color: rgba(0,0,0, 0.3); /* Nền mờ ví dụ */
+    font-size: 0.7em; /* Ví dụ */
+    padding: 3px 6px;
+}
+
+.overlay-destination {
+    bottom: 80px; /* Điều chỉnh vị trí */
+    left: 15px;
+    font-size: 1.8em; /* Cỡ chữ lớn */
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.2); /* Nền mờ nhẹ */
+    text-transform: uppercase;
+}
+
+.overlay-duration {
+    bottom: 55px; /* Điều chỉnh vị trí */
+    left: 15px;
+    background-color: #E53935; /* Nền đỏ cam */
+    font-size: 0.8em;
+    padding: 4px 8px;
+}
+
+.overlay-price {
+    bottom: 15px; /* Điều chỉnh vị trí */
+    left: 15px;
+    background-color: #E53935; /* Nền đỏ cam */
+    padding: 5px 10px;
+    text-align: center;
+}
+.overlay-price span {
+    display: block;
+    font-size: 0.75em;
+    line-height: 1.2;
+}
+.overlay-price strong {
+    display: block;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 1.2;
+}
+/* --- Hết Overlay --- */
+
+
+.tour-content {
+    padding: 20px; /* Padding cho nội dung */
+    flex-grow: 1; /* Cho phép nội dung co giãn */
+    display: flex; /* Sắp xếp nội dung bằng flex */
+    flex-direction: column; /* Xếp dọc */
+}
+
+.tour-title {
+    color: #FF007F; /* Màu hồng */
+    font-size: 1.1em; /* Cỡ chữ tiêu đề */
+    font-weight: bold;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    flex-grow: 1; /* Đẩy phần dưới (giá, nút) xuống */
+}
+
+.tour-details {
+    list-style: none; /* Bỏ dấu chấm */
+    padding: 0;
+    margin: 0 0 15px 0; /* Khoảng cách dưới */
+    font-size: 0.9em; /* Cỡ chữ nhỏ hơn */
+    color: #555; /* Màu xám */
+}
+
+.tour-details li {
+    margin-bottom: 5px; /* Khoảng cách giữa các dòng chi tiết */
+    display: flex; /* Căn icon và text */
+    align-items: center;
+    gap: 5px; /* Khoảng cách icon và text */
+}
+
+.tour-pricing {
+    margin-bottom: 15px; /* Khoảng cách dưới giá */
+    display: flex; /* Sắp xếp giá ngang nhau */
+    align-items: baseline; /* Căn theo dòng chữ */
+    gap: 10px; /* Khoảng cách giữa 2 giá */
+}
+
+.original-price {
+    color: #999; /* Màu xám nhạt */
+    text-decoration: line-through; /* Gạch ngang */
+    font-size: 0.9em;
+}
+
+.discounted-price {
+    color: #2ecc71; /* Màu xanh lá */
+    font-size: 1.2em; /* Cỡ chữ lớn hơn */
+    font-weight: bold;
+}
+.original-price small, .discounted-price small {
+    font-size: 0.8em; /* Chữ 'đ' nhỏ hơn */
+    font-weight: normal; /* Không in đậm chữ 'đ' */
+}
+
+.details-button {
+    display: inline-block; /* Để có thể đặt padding, margin */
+    background-color: #00a2ff; /* Màu hồng */
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none; /* Bỏ gạch chân */
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: auto; /* Đẩy nút xuống dưới cùng nếu .tour-content dùng flex */
+    align-self: flex-start; /* Chỉ chiếm độ rộng cần thiết */
+}
+
+.details-button:hover {
+    background-color: #d6006c; /* Màu hồng đậm hơn khi hover */
+}
+
+/* --- Responsive điều chỉnh cho Tour Grid (Ví dụ) --- */
+@media (max-width: 1200px) {
+    .tours-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+}
+@media (max-width: 768px) {
+    .tours-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Có thể 2 cột */
+        gap: 20px;
+    }
+     .tour-title { font-size: 1em; }
+     .discounted-price { font-size: 1.1em; }
+}
+@media (max-width: 576px) {
+    .tours-grid {
+        grid-template-columns: 1fr; /* 1 cột trên mobile nhỏ */
+    }
+}
+
+/* --- Responsive Design (Cập nhật nếu cần) --- */
+@media (max-width: 992px) {
+    .hero-title { font-size: 2.8em; } /* Giảm cỡ chữ tiêu đề */
+    .values-section { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px 20px; }
+    .tours-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+    .banner h1 { font-size: 2.2em; }
+    .banner h2 { font-size: 1.5em; }
+    .tours-main-title { font-size: 2em; }
+}
+
+@media (max-width: 768px) {
+    /* Header responsive: Chuyển nav xuống dưới logo hoặc thành menu ẩn */
+    .main-header {
+        flex-direction: column; /* Logo trên nav */
+        align-items: center; /* Căn giữa */
+        gap: 15px; /* Khoảng cách giữa logo và nav */
+    }
+     .main-nav ul {
+        gap: 20px; /* Giảm khoảng cách menu */
+        flex-wrap: wrap; /* Cho phép xuống dòng nếu không đủ chỗ */
+        justify-content: center; /* Căn giữa menu */
+    }
+    .hero-title { font-size: 2.4em; }
+    .values-section { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .tours-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    .banner h1 { font-size: 1.8em; }
+    .banner h2 { font-size: 1.3em; }
+    .tours-main-title { font-size: 1.8em; }
+}
+
+@media (max-width: 480px) {
+    .main-nav ul {
+        gap: 15px; /* Giảm khoảng cách menu hơn nữa */
+        font-size: 0.9em; /* Giảm cỡ chữ menu */
+    }
+    .hero-title { font-size: 2em; letter-spacing: 1px;}
+    .values-section { grid-template-columns: 1fr; gap: 25px; }
+    .value-item { flex-direction: column; align-items: center; text-align: center; }
+    .tours-grid { grid-template-columns: 1fr; }
+    .banner h1 { font-size: 1.6em; }
+    .banner h2 { font-size: 1.1em; }
+    .tours-main-title { font-size: 1.6em; }
+    .tours-subtitle { font-size: 1em;}
+}
+    </style>
+</head>
+<body>
+     <header>
+            <div class="container1">
+                <div class="logo">
+                  <a href="index.html"><img src="Logo.jpg" alt="logo"></a>
+                </div>
+                <div class="search-container">
+                  <form action="/action_page.php">
+                    <input type="text" placeholder="Tìm kiếm.." name="search">
+                    <button type="submit">Tìm kiếm</i></button>
+                  </form>
+              </div>
+                <nav>
+                    <ul>
+                      <li><a href="index.html">Trang chủ</a></li>
+                      <li><a href="Giới thiệu.html">Giới thiệu</a></li>
+                      <li><a href="booktour.html">Book tour</a></li>
+                      <li><a href="Explore the world.html">Địa điểm</a></li>
+                      <li><a href="liên hệ.html">Liên hệ</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="page-container">
+        <section class="hero-title-section">
+            <h1 class="hero-title">SEA TOUR</h1>
+        </section>
+        <!-- ========== KẾT THÚC PHẦN TIÊU ĐỀ MỚI ========== -->
+
+
+        <!-- ========== NỘI DUNG CŨ BẮT ĐẦU TỪ ĐÂY ========== -->
+        <!-- Phần Giá trị cốt lõi -->
+        <section class="values-section">
+            <div class="value-item">
+                <div class="value-icon icon-pro"></div>
+                <div class="value-text">
+                    <h3>Chuyên nghiệp</h3>
+                    <p>Trên mỗi hành trình đồng hành cùng khách hàng, chúng tôi đều chú trọng vào sự chuyên nghiệp và tận tâm.</p>
+                </div>
+            </div>
+            <div class="value-item">
+                <div class="value-icon icon-creative"></div>
+                <div class="value-text">
+                    <h3>Sáng tạo</h3>
+                    <p>Chúng tôi luôn nghiên cứu, thiết kế, lên kế hoạch mỗi chuyến đi sao cho vừa đầy tính sáng tạo vừa an toàn nhất.</p>
+                </div>
+            </div>
+            <div class="value-item">
+                <div class="value-icon icon-trust"></div>
+                 <div class="value-text">
+                    <h3>Uy tín</h3>
+                    <p>Trong nhiều năm qua, chúng tôi được đánh giá là một Nhà tổ chức du lịch uy tín trong mắt khách hàng và đối tác.</p>
+                </div>
+            </div>
+            <div class="value-item">
+                <div class="value-icon icon-exp"></div>
+                 <div class="value-text">
+                    <h3>Kinh nghiệm</h3>
+                    <p>Với nhiều năm kinh nghiệm, Sea Trip Travel tự hào đã làm hài lòng hơn 10 triệu lượt khách và nhiều đối tác lớn.</p>
+                </div>
+            </div>
+            <div class="value-item">
+                 <div class="value-icon icon-safe"></div>
+                 <div class="value-text">
+                    <h3>An toàn</h3>
+                    <p>Chúng tôi luôn đặt khách hàng là trung tâm, vì thế sự an toàn của khách hàng là ưu tiên hàng đầu của chúng tôi.</p>
+                 </div>
+            </div>
+            <div class="value-item">
+                 <div class="value-icon icon-price"></div>
+                 <div class="value-text">
+                    <h3>Giá tốt</h3>
+                    <p>Chúng tôi không chỉ tập trung vào chất lượng mà còn không ngừng nỗ lực tối ưu chi phí cho khách hàng.</p>
+                 </div>
+            </div>
+        </section>
+        
+
+        <!-- Phần Banner Hồng -->
+        <section class="banner">
+            <h2>Hãy để chuyến đi của bạn thật đáng nhớ</h2>
+            <h1>Cùng Sea Tour sải cánh vươn xa mọi nơi</h1>
+        </section>
+        <section class="tours-section">
+            <h2 class="tours-main-title">Tour Du Lịch Hè 2025</h2>
+            <p class="tours-subtitle">Tổng hợp các Tour Du Lịch Hè 2025 – Khởi hành Quy Nhơn, Bình Định – Giá hấp dẫn.</p>
+            <div class="tours-grid">
+
+                <!-- Tour Item 1: Đà Lạt -->
+                <div class="tour-item">
+                    <div class="tour-image-container">
+                        <!-- !!! THAY BẰNG ẢNH THẬT !!! -->
+                        <img src="red-sea.jpg" alt="Tour Đà Lạt">
+                        <span class="discount-label">-37%</span>
+                        <div class="image-overlay overlay-price">
+                        </div>
+                    </div>
+                    <div class="tour-content">
+                        <h4 class="tour-title">The Red Sea – “A marine marvel.”</h4>
+                        <ul class="tour-details">
+                            <li>🕒 Thời gian: 3 ngày 2 đêm</li>
+                            <li>📍 Xuất phát: Từ 10 khách</li>
+                        </ul>
+                        <div class="tour-pricing">
+                            <span class="original-price">6.990.000<small>đ</small></span>
+                            <span class="discounted-price">4.390.000<small>đ</small></span>
+                        </div>
+                        <a href="#" class="details-button">Chi tiết</a>
+                    </div>
+                </div>
+                <!-- Hết Tour Item 1 -->
+
+                <!-- Tour Item 2: Nha Trang - Đà Lạt -->
+                <div class="tour-item">
+                    <div class="tour-image-container">
+                        <!-- !!! THAY BẰNG ẢNH THẬT !!! -->
+                        <img src="arabian-sea.jpg" alt="Tour Nha Trang Đà Lạt">
+                        <span class="discount-label">-27%</span>
+                         <div class="image-overlay overlay-price">
+                        </div>
+                    </div>
+                    <div class="tour-content">
+                        <h4 class="tour-title">The Arabian Sea – “A sea of trade and commerce.”</h4>
+                        <ul class="tour-details">
+                            <li>🕒 Thời gian: 4 ngày 3 đêm</li>
+                            <li>📍 Xuất phát: Từ 10 khách</li>
+                        </ul>
+                         <div class="tour-pricing">
+                            <span class="original-price">6.990.000<small>đ</small></span>
+                            <span class="discounted-price">5.090.000<small>đ</small></span>
+                        </div>
+                        <a href="#" class="details-button">Chi tiết</a>
+                    </div>
+                </div>
+                <!-- Hết Tour Item 2 -->
+
+                 <!-- Tour Item 3: Nha Trang -->
+                 <div class="tour-item">
+                    <div class="tour-image-container">
+                        <!-- !!! THAY BẰNG ẢNH THẬT !!! -->
+                        <img src="caribbean-sea.jpg" alt="Tour Nha Trang">
+                        <span class="discount-label">-28%</span>
+                         <div class="image-overlay overlay-price">
+                        </div>
+                    </div>
+                    <div class="tour-content">
+                        <h4 class="tour-title">The Caribbean Sea – “A paradise of turquoise waters.”</h4>
+                        <ul class="tour-details">
+                            <li>🕒 Thời gian: 3 ngày 2 đêm</li>
+                            <li>📍 Xuất phát: Từ 10 khách</li>
+                        </ul>
+                         <div class="tour-pricing">
+                            <span class="original-price">4.990.000<small>đ</small></span>
+                            <span class="discounted-price">3.590.000<small>đ</small></span>
+                        </div>
+                        <a href="#" class="details-button">Chi tiết</a>
+                    </div>
+                </div>
+                <!-- Hết Tour Item 3 -->
+            </div> <!-- Kết thúc .tours-grid -->
+        </section>
+    </div>
+    <div class="services-container">
+        <div class="service-box">
+            <img src="image (2).png" alt="Free Shipping" style="width: 80px">
+            <h3>Đưa đón tận nơi</h3>
+            <p>Miễn phí đưa đón tận nơi</p>
+        </div>
+        <div class="service-box">
+            <img src="https://shop.thuviencokhi.com/wp-content/uploads/2018/06/icon-chat-luong.png" alt="Quality Assurance" style="width: 60px ;">
+            <h3>CHẤT LƯỢNG ĐẢM BẢO</h3>
+            <p>Đảm bảo an toàn và chất lượng</p>
+        </div>
+        <div class="service-box">
+            <img src="image.png" alt="Easy Returns" style="width: 100px">
+            <h3>MIỄN PHÍ HỦY VÉ</h3>
+            <p>Miễn phí hoàn tour trong vòng 7 ngày</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="footer-section">
+            <div class="footer-box">
+                <h3>LIÊN HỆ VỚI CHÚNG TÔI</h3>
+                <p><span class="highlight">Địa chỉ:</span>08, Lê Duẩn, P. Nghĩa Tân, Tp. Gia Nghĩa, tỉnh Đăk Nông</p>
+                <p><span class="highlight">Hotline:</span> 0812 345 678 - 098 7654 321</p>
+                <p><span class="highlight">Thời gian làm việc:</span> T2 - T7: 09:00 - 18:00</p>
+                <p><span class="highlight">Email:</span> abc*******@gmail.com</p>
+            </div>
+            <div class="footer-box">
+                <h3>HỖ TRỢ KHÁCH HÀNG</h3>
+                <ul>
+                    <li>Hướng dẫn đặt vé</li>
+                    <li>Hướng dẫn thanh toán</li>
+                    <li>Đặt vé an toàn</li>
+                    <li>Chính sách bảo hành & hoàn vé</li>
+                    <li>Chính sách bảo mật thông tin</li>
+                </ul>
+            </div>
+            <div class="footer-box">
+                <h3>KẾT NỐI VỚI CHÚNG TÔI</h3>
+                <div class="footer-icons">
+                    <a href="https://www.facebook.com/" title="Facebook"><img src="https://cdn.pixabay.com/photo/2020/07/21/02/07/facebook-5424833_1280.png" style="width:50px;"></a>
+                    <a href="https://www.instagram.com/" title="ig"><img src="https://png.pngtree.com/png-clipart/20180626/ourmid/pngtree-instagram-icon-instagram-logo-png-image_3584852.png" style="width:60px;"></a> 
+                    <a href="https://www.google.com/maps/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Google_Maps_icon_%282020%29.svg/1428px-Google_Maps_icon_%282020%29.svg.png" style="width:30px;"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="scrollToTopBtn"></button>
+
+    <script>
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add("show");
+            } else {
+                scrollToTopBtn.classList.remove("show");
+            }
+        });
+
+       scrollToTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0, 
+                behavior: "smooth" 
+            });
+        });
+    </script>
+    <footer style="text-align: center;">
+        © 2025 THPT NCT - Designed by TD-TH
+    </footer>
+</body>
+</html>

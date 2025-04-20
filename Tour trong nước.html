@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Trong Nước</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* tour trong nước */
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.banner-container5 {
+    position: relative; /* Needed for absolute positioning of the overlay */
+    width: 100%;
+    height: 400px; /* Example height, adjust based on your layout */
+    background-image: url('vn.jpg'); /* Direct URL to the image you provided */
+    background-size: cover; /* Make image cover the container */
+    background-position: center center; /* Center the image */
+    background-repeat: no-repeat;
+    overflow: hidden; /* Optional: ensure nothing spills out */
+    padding-bottom: 100px;
+}
+
+.text-overlay {
+    position: absolute;
+    bottom: 0; /* Position at the bottom */
+    left: 10%; /* Align to the left */
+    width: 80%; /* Span the full width */
+    height: 27%;
+    background-color: rgba(30, 30, 30, 0.7); /* Dark semi-transparent background - adjust color and opacity (0.7 = 70%) */
+    color: white; /* Text color */
+    padding: 25px 50px; /* Padding inside the overlay (top/bottom, left/right) - adjust as needed */
+}
+
+.text-overlay h1 {
+    margin: 0 0 3px 0; /* Remove default margin top, add small margin bottom */
+    font-size: 2.3em; /* Adjust font size for the main title */
+    font-weight: bold;
+    line-height: 1;
+}
+
+.text-overlay p {
+    margin: 0; /* Remove default paragraph margin */
+    font-size: 1em; /* Adjust font size for the subtitle */
+    opacity: 0.8; /* Slightly less prominent text */
+}
+
+/* Simple Responsive Adjustments */
+@media (max-width: 768px) {
+    .banner-container5 {
+        height: 400px; /* Adjust height for tablets */
+    }
+    .text-overlay {
+        padding: 20px 30px;
+    }
+    .text-overlay h1 {
+        font-size: 2em;
+    }
+    .text-overlay p {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-container5 {
+        height: 300px; /* Adjust height for mobile phones */
+    }
+    .text-overlay {
+        padding: 15px 20px;
+    }
+    .text-overlay h1 {
+        font-size: 1.6em;
+    }
+    .text-overlay p {
+        font-size: 0.8em;
+    }
+}
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+.container5 {
+    max-width: 1200px; /* Adjust based on desired content width */
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff; /* Example blue link color */
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* Icons (using Font Awesome - included via CDN in HTML) */
+i {
+    margin-right: 5px;
+}
+
+/* --- Search/Filter Bar --- */
+.search-filter-bar {
+    background-color: #f0f0f0; /* Light gray background */
+    padding: 20px 0;
+    margin-bottom: 25px;
+}
+
+.search-filter-content {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between elements */
+}
+
+.search-input-group {
+    flex-grow: 1; /* Takes up available space */
+    position: relative;
+    display: flex;
+}
+
+.search-input-group input {
+    padding: 10px 40px 10px 15px; /* Space for icon */
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 0;
+    width: 100%;
+}
+
+.search-input-group .search-icon-btn {
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    bottom: 1px;
+    border: none;
+    background: none;
+    padding: 0 12px;
+    color: #777;
+    cursor: pointer;
+}
+
+
+.date-picker-group {
+    position: relative;
+    min-width: 150px; /* Adjust as needed */
+}
+
+.date-picker-group input {
+    padding: 10px 35px 10px 15px; /* Space for icon */
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 4px;
+    width: 100%;
+}
+
+.date-picker-group .date-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
+    pointer-events: none; /* Icon doesn't block input click */
+}
+
+.select-group {
+    min-width: 150px; /* Adjust as needed */
+}
+
+.select-group select {
+    padding: 10px 15px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 4px;
+    width: 100%;
+    background-color: white; /* Ensure white background */
+    appearance: none; /* Basic styling reset */
+     /* Add custom arrow or use default */
+    background: white url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E') no-repeat right 10px center;
+    background-size: 8px 10px;
+    padding-right: 30px; /* Space for custom arrow */
+}
+
+.btn {
+    padding: 10px 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #3fb2f9; /* Orange color */
+    color: white;
+    border-color: #3fb2f9; /* Orange color */
+}
+
+.btn-primary:hover {
+    background-color: #3fb2f9; /* Orange color */
+    border-color: #3fb2f9; /* Orange color */
+    text-decoration: none;
+}
+
+/* --- Sort/View Options --- */
+.sort-view-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee; /* Optional separator */
+}
+
+.sort-by a {
+    margin-left: 10px;
+    color: #007bff; /* Blue links */
+}
+
+.sort-by a.active {
+    font-weight: bold;
+    color: #333; /* Darker color for active */
+    text-decoration: none;
+}
+
+.view-toggle .view-btn {
+    background: none;
+    border: 1px solid #ccc;
+    padding: 5px 8px;
+    margin-left: 5px;
+    border-radius: 3px;
+    color: #777;
+}
+
+.view-toggle .view-btn.active {
+    background-color: #eee;
+    color: #333;
+}
+
+/* --- Tour Item --- */
+.tour-item {
+    display: flex;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    background-color: #fff;
+    overflow: hidden; /* Ensure children don't overflow rounded corners */
+}
+
+.tour-image {
+    flex: 0 0 30%; /* Adjust width percentage as needed */
+    /* Or use fixed width: flex-basis: 300px; */
+}
+
+.tour-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the area without distortion */
+    border-radius: 8px 0 0 8px; /* Round top-left and bottom-left corners */
+}
+
+.tour-details {
+    flex: 1 1 auto; /* Takes up remaining space */
+    padding: 15px 20px;
+}
+
+.tour-title {
+    font-size: 1.2em;
+    color: #0056b3; /* Blue title color */
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.tour-subtitle {
+    font-size: 1em;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.tour-info, .tour-description {
+    margin-bottom: 8px;
+    color: #555;
+    line-height: 1.5;
+}
+.tour-description{
+     font-size: 0.9em;
+}
+
+.tour-booking {
+    flex: 0 0 25%; /* Adjust width percentage as needed */
+    /* Or use fixed width: flex-basis: 250px; */
+    padding: 15px 20px;
+    border-left: 1px solid #eee; /* Separator line */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Make buttons full width */
+    text-align: center;
+}
+
+.tour-price {
+    background-color: #0e76b7; /* Orange color */
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.tour-price span {
+    font-size: 0.9em;
+    display: block; /* Put "Giá từ" on its own line */
+    margin-bottom: 3px;
+}
+
+.tour-price .price-value {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.tour-dates {
+    margin-bottom: 15px;
+}
+
+.btn-date, .btn-more-dates {
+    display: block; /* Make each date a block */
+    width: 100%; /* Full width */
+    margin-bottom: 8px;
+    padding: 8px 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: left;
+    color: #555;
+}
+.btn-date i, .btn-more-dates i{
+    color: #777;
+}
+
+.btn-date:hover, .btn-more-dates:hover {
+    background-color: #f8f8f8;
+    border-color: #bbb;
+    text-decoration: none;
+}
+
+.btn-more-dates {
+    color: #1569c3; /* Blue link color */
+    font-weight: normal;
+    text-align: center;
+    border: none; /* Looks like no border in the image */
+    background: none;
+    padding: 5px 0;
+}
+.btn-more-dates:hover{
+     background: none;
+     border: none;
+     text-decoration: underline;
+}
+
+
+/* --- Responsive Considerations (Basic Example) --- */
+@media (max-width: 992px) {
+    .tour-item {
+        flex-direction: column;
+    }
+    .tour-image img {
+       border-radius: 8px 8px 0 0; /* Round top corners only */
+    }
+    .tour-booking {
+        border-left: none;
+        border-top: 1px solid #eee;
+        align-items: center; /* Center items when stacked */
+    }
+    .tour-price, .btn-date, .btn-more-dates{
+        max-width: 300px; /* Prevent buttons getting too wide */
+    }
+    .search-filter-content {
+        flex-wrap: wrap; /* Allow search items to wrap */
+    }
+     .search-input-group, .date-picker-group, .select-group, .btn-search {
+        flex-basis: 48%; /* Roughly two items per row */
+        margin-bottom: 10px;
+    }
+    .search-input-group {
+        flex-basis: 100%; /* Full width for search */
+    }
+     .btn-search {
+        flex-basis: 100%; /* Full width button */
+    }
+}
+
+@media (max-width: 768px) {
+     .sort-view-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+     .search-input-group, .date-picker-group, .select-group, .btn-search {
+        flex-basis: 100%; /* One item per row */
+    }
+     .tour-details, .tour-booking {
+         padding: 15px;
+     }
+}
+
+.pagination-container5 {
+    display: inline-block; /* Allow container to fit content */
+    position: absolute;
+    margin-left: 40%;
+    margin-bottom: 10%;
+}
+
+.pagination-container5 ul {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Arrange items horizontally */
+    align-items: center; /* Vertically align items */
+    gap: 15px; /* Space between pagination items */
+}
+
+
+.pagination-container5 .page-link {
+    display: inline-block; /* Treat links as blocks for padding */
+    text-decoration: none; /* Remove underline from links */
+    color: #333; /* Default text color (dark grey) */
+    font-size: 16px; /* Adjust font size as needed */
+    padding: 5px; /* Minimal padding for number links */
+    transition: color 0.2s ease, background-color 0.2s ease; /* Smooth hover effects */
+}
+
+/* Style for the active page number */
+.pagination-container5 .page-link.active {
+    color: #f9a03f; /* Orange color from previous example - adjust if needed */
+    font-weight: bold; /* Make active number bold */
+}
+
+/* Style for the "Next" button */
+.pagination-container5 .page-link.next-btn {
+    border: 1px solid #ccc; /* Light grey border */
+    padding: 8px 15px; /* More padding for button look */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #fff; /* White background */
+    display: inline-flex; /* Helps align text and arrow */
+    align-items: center; /* Vertically center text/arrow */
+    gap: 5px; /* Space between "TIẾP" and the arrow */
+    color: #333; /* Ensure text color is default */
+}
+
+/* Hover effect for non-active page numbers */
+.pagination-container5 .page-link:not(.active):not(.next-btn):hover {
+    color: #007bff; /* Example hover color - blue */
+    /* or */
+    /* text-decoration: underline; */
+}
+
+/* Hover effect for the "Next" button */
+.pagination-container5 .page-link.next-btn:hover {
+    background-color: #f8f8f8; /* Slightly darker background on hover */
+    border-color: #bbb; /* Slightly darker border on hover */
+    color: #333; /* Keep text color */
+}
+
+ /* font-size: 0.9em; */ /* Adjust icon size if needed */
+ 
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container1">
+            <div class="logo">
+                <a href="index.html"><img src="Logo.jpg" alt="logo"></a>
+            </div>
+            <div class="search-container">
+                <form action="/action_page.php">
+                  <input type="text" placeholder="Tìm kiếm.." name="search">
+                  <button type="submit">Tìm kiếm</i></button>
+                </form>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="Giới thiệu.html">Giới thiệu</a></li>
+                    <li><a href="booktour.html">Book tour</a></li>
+                    <li><a href="Explore the world.html">Địa điểm</a></li>
+                    <li><a href="liên hệ.html">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="banner-container5">
+        <div class="text-overlay">
+            <h1>Tour Trong Nước</h1>
+            <p>Tổng hợp các tour trong nước</p>
+        </div>
+    </div>
+
+    <div class="search-filter-bar">
+        <div class="container5 search-filter-content">
+            <div class="search-input-group">
+                <input type="text" placeholder="Tìm tour : ...">
+                <button class="search-icon-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="date-picker-group">
+                <input type="text" placeholder="Từ ngày">
+                <i class="far fa-calendar-alt date-icon"></i>
+            </div>
+            <div class="date-picker-group">
+                <input type="text" placeholder="Đến ngày">
+                <i class="far fa-calendar-alt date-icon"></i>
+            </div>
+            <div class="select-group">
+                <select>
+                    <option>Trong nước</option>
+                    <option>Quốc tế</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+            <button class="btn btn-primary btn-search">TÌM KIẾM</button>
+        </div>
+    </div>
+
+    <div class="container5 main-content">
+        <div class="sort-view-options">
+            <div class="sort-by">
+                <strong>Sắp xếp:</strong>
+                <a href="#">[ Ngày gần nhất ]</a>
+                <a href="#">[ Giá thấp nhất ]</a>
+                <a href="#">[ Hấp dẫn nhất ]</a>
+            </div>
+            <div class="view-toggle">
+                <button class="view-btn active"><i class="fas fa-th-large"></i></button>
+                <button class="view-btn"><i class="fas fa-list"></i></button>
+            </div>
+        </div>
+
+        <article class="tour-item">
+            <div class="tour-image">
+                <img src="ĐN.jpg" alt="Tour Đà Nẵng - Hà Nội">
+                <!-- Logo overlay would typically be done with absolute positioning if needed -->
+            </div>
+            <div class="tour-details">
+                <h3 class="tour-title">ĐÀ NẴNG - HÀ NỘI - NINH BÌNH HẠ LONG (VNA)</h3>
+                <h4 class="tour-subtitle">ĐÀ NẴNG - HÀ NỘI</h4>
+                <p class="tour-info">Thời gian : 10/04/2025 - 13/04/2025</p>
+                <p class="tour-info">Phương tiện :</p>
+                <p class="tour-description">- Du ngoạn Vịnh Hạ Long, viếng chùa Yên Tử - Tham quan Tràng An,...</p>
+            </div>
+            <div class="tour-booking">
+                <div class="tour-price">
+                    <span>Giá từ</span>
+                    <strong class="price-value">8.499.000</strong>
+                </div>
+                <div class="tour-dates">
+                    <button class="btn btn-date"><i class="far fa-calendar-alt"></i> 17/04/2025</button>
+                    <button class="btn btn-date"><i class="far fa-calendar-alt"></i> 08/05/2025</button>
+                </div>
+                <button class="btn btn-more-dates"><i class="far fa-calendar-alt"></i> Xem thêm</button>
+            </div>
+        </article>
+        <article class="tour-item">
+            <div class="tour-image">
+                <img src="halong.jpg" alt="Tour Đà Nẵng - Hà Nội">
+                <!-- Logo overlay would typically be done with absolute positioning if needed -->
+            </div>
+            <div class="tour-details">
+                <h3 class="tour-title">ĐÀ NẴNG - HÀ NỘI - NINH BÌNH HẠ LONG (VNA)</h3>
+                <h4 class="tour-subtitle">ĐÀ NẴNG - HÀ NỘI</h4>
+                <p class="tour-info">Thời gian : 10/04/2025 - 13/04/2025</p>
+                <p class="tour-info">Phương tiện :</p>
+                <p class="tour-description">- Du ngoạn Vịnh Hạ Long, viếng chùa Yên Tử - Tham quan Tràng An,...</p>
+            </div>
+            <div class="tour-booking">
+                <div class="tour-price">
+                    <span>Giá từ</span>
+                    <strong class="price-value">8.499.000</strong>
+                </div>
+                <div class="tour-dates">
+                    <button class="btn btn-date"><i class="far fa-calendar-alt"></i> 17/04/2025</button>
+                    <button class="btn btn-date"><i class="far fa-calendar-alt"></i> 08/05/2025</button>
+                </div>
+                <button class="btn btn-more-dates"><i class="far fa-calendar-alt"></i> Xem thêm</button>
+            </div>
+        </article>
+
+        <article class="tour-item">
+            <div class="tour-image">
+                <img src="hn.jpg" alt="Tour Đà Nẵng - Hà Nội">
+                <!-- Logo overlay would typically be done with absolute positioning if needed -->
+            </div>
+            <div class="tour-details">
+                <h3 class="tour-title">ĐÀ NẴNG - HÀ NỘI - NINH BÌNH HẠ LONG (VNA)</h3>
+                <h4 class="tour-subtitle">ĐÀ NẴNG - HÀ NỘI</h4>
+                <p class="tour-info">Thời gian : 10/04/2025 - 13/04/2025</p>
+                <p class="tour-info">Phương tiện :</p>
+                <p class="tour-description">- Du ngoạn Vịnh Hạ Long, viếng chùa Yên Tử - Tham quan Tràng An,...</p>
+            </div>
+            <div class="tour-booking">
+                <div class="tour-price">
+                    <span>Giá từ</span>
+                    <strong class="price-value">8.499.000</strong>
+                </div>
+                <div class="tour-dates">
+                    <button class="btn btn-date"><i class="far fa-calendar-alt"></i> 17/04/2025</button>
+                    <button class="btn btn-date"><i class="far fa-calendar-alt"></i> 08/05/2025</button>
+                </div>
+                <button class="btn btn-more-dates"><i class="far fa-calendar-alt"></i> Xem thêm</button>
+            </div>
+        </article>
+
+        <article class="tour-item">
+            <div class="tour-image">
+                <img src="nb.jpg" alt="Tour Đà Nẵng - Hà Nội">
+                <!-- Logo overlay would typically be done with absolute positioning if needed -->
+            </div>
+            <div class="tour-details">
+                <h3 class="tour-title">ĐÀ NẴNG - HÀ NỘI - NINH BÌNH HẠ LONG (VNA)</h3>
+                <h4 class="tour-subtitle">ĐÀ NẴNG - HÀ NỘI</h4>
+                <p class="tour-info">Thời gian : 10/04/2025 - 13/04/2025</p>
+                <p class="tour-info">Phương tiện :</p>
+                <p class="tour-description">- Du ngoạn Vịnh Hạ Long, viếng chùa Yên Tử - Tham quan Tràng An,...</p>
+            </div>
+            <div class="tour-booking">
+                <div class="tour-price">
+                    <span>Giá từ</span>
+                    <strong class="price-value">8.499.000</strong>
+                </div>
+                <div class="tour-dates">
+                    <button class="btn btn-date"><i class="far fa-calendar-alt"></i> 17/04/2025</button>
+                    <button class="btn btn-date"><i class="far fa-calendar-alt"></i> 08/05/2025</button>
+                </div>
+                <button class="btn btn-more-dates"><i class="far fa-calendar-alt"></i> Xem thêm</button>
+            </div>
+        </article>
+
+
+        <article class="tour-item">
+            <div class="tour-image">
+                <img src="dn.jpg" alt="Tour Đà Nẵng - Hà Nội">
+                <!-- Logo overlay would typically be done with absolute positioning if needed -->
+            </div>
+            <div class="tour-details">
+                <h3 class="tour-title">ĐÀ NẴNG - HÀ NỘI - NINH BÌNH HẠ LONG (VNA)</h3>
+                <h4 class="tour-subtitle">ĐÀ NẴNG - HÀ NỘI</h4>
+                <p class="tour-info">Thời gian : 10/04/2025 - 13/04/2025</p>
+                <p class="tour-info">Phương tiện :</p>
+                <p class="tour-description">- Du ngoạn Vịnh Hạ Long, viếng chùa Yên Tử - Tham quan Tràng An,...</p>
+            </div>
+            <div class="tour-booking">
+                <div class="tour-price">
+                    <span>Giá từ</span>
+                    <strong class="price-value">8.499.000</strong>
+                </div>
+                <div class="tour-dates">
+                    <button class="btn btn-date"><i class="far fa-calendar-alt"></i> 17/04/2025</button>
+                    <button class="btn btn-date"><i class="far fa-calendar-alt"></i> 08/05/2025</button>
+                </div>
+                <button class="btn btn-more-dates"><i class="far fa-calendar-alt"></i> Xem thêm</button>
+            </div>
+        </article>
+    </div>
+    <div class="container">
+        <div class="footer-section">
+            <div class="footer-box">
+                <h3>LIÊN HỆ VỚI CHÚNG TÔI</h3>
+                <p><span class="highlight">Địa chỉ:</span>08, Lê Duẩn, P. Nghĩa Tân, Tp. Gia Nghĩa, tỉnh Đăk Nông</p>
+                <p><span class="highlight">Hotline:</span> 0812 345 678 - 098 7654 321</p>
+                <p><span class="highlight">Thời gian làm việc:</span> T2 - T7: 09:00 - 18:00</p>
+                <p><span class="highlight">Email:</span> abc*******@gmail.com</p>
+            </div>
+            <div class="footer-box">
+                <h3>HỖ TRỢ KHÁCH HÀNG</h3>
+                <ul>
+                    <li>Hướng dẫn đặt vé</li>
+                    <li>Hướng dẫn thanh toán</li>
+                    <li>Đặt vé an toàn</li>
+                    <li>Chính sách bảo hành & hoàn vé</li>
+                    <li>Chính sách bảo mật thông tin</li>
+                </ul>
+            </div>
+            <div class="footer-box">
+                <h3>KẾT NỐI VỚI CHÚNG TÔI</h3>
+                <div class="footer-icons">
+                    <a href="https://www.facebook.com/" title="Facebook"><img src="https://cdn.pixabay.com/photo/2020/07/21/02/07/facebook-5424833_1280.png" style="width:50px;"></a>
+                    <a href="https://www.instagram.com/" title="ig"><img src="https://png.pngtree.com/png-clipart/20180626/ourmid/pngtree-instagram-icon-instagram-logo-png-image_3584852.png" style="width:60px;"></a> 
+                    <a href="https://www.google.com/maps/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Google_Maps_icon_%282020%29.svg/1428px-Google_Maps_icon_%282020%29.svg.png" style="width:30px;"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="scrollToTopBtn"></button>
+
+    <script>
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add("show");
+            } else {
+                scrollToTopBtn.classList.remove("show");
+            }
+        });
+
+       scrollToTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0, 
+                behavior: "smooth" 
+            });
+        });
+    </script>
+    <footer style="text-align: center;">
+        © 2025 THPT NCT - Designed by TD-TH
+    </footer>
+</body>
+</html>

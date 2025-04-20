@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Du Thuyền</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Basic Reset & Body Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif; /* Or a similar font */
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+}
+
+a {
+    color: #007bff; /* Default link color */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Container */
+.page-container {
+    max-width: 1200px; /* Adjust as needed */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.page-header h1 {
+    color: #00AEEF; /* Bright blue color */
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.breadcrumbs {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.breadcrumbs span:last-child {
+    font-weight: bold;
+    color: #555;
+}
+
+/* Introduction Section */
+.intro-section p {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.intro-section .highlight {
+    color: #FFA500; /* Orange color */
+    font-weight: bold;
+}
+
+.see-more {
+    display: inline-block;
+    color: #007bff;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* Main Content Layout (Sidebar + Tour List) */
+.main-content {
+    display: flex;
+    gap: 30px; /* Space between filters and tour list */
+}
+
+/* Filters Sidebar */
+.filters {
+    flex: 0 0 250px; /* Fixed width for the sidebar */
+    /* background-color: #f8f9fa; */ /* Optional background */
+    /* padding: 15px; */
+    /* border-radius: 5px; */
+}
+
+.filters h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.filter-option {
+    margin-bottom: 10px;
+}
+
+.filter-option label {
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+.filter-dropdowns {
+    margin-top: 20px;
+}
+
+.dropdown-container {
+    margin-bottom: 15px;
+}
+
+.dropdown-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 1rem; /* Match image style */
+     color: #333;
+}
+
+.styled-select {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #00AEEF; /* Blue border */
+    border-radius: 4px;
+    background-color: #fff;
+    appearance: none; /* Remove default arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2300AEEF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); /* Simple dropdown arrow */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Tour List */
+.tour-list {
+    flex-grow: 1; /* Takes remaining space */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 20px;
+}
+
+/* Tour Card Styling */
+.tour-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff; /* Card background */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* Stack image, info, badges */
+}
+
+.tour-card img {
+    width: 100%;
+    height: 180px; /* Fixed height for consistency */
+    object-fit: cover; /* Crop image nicely */
+    display: block;
+}
+
+.tour-info {
+    padding: 15px;
+    flex-grow: 1; /* Allow info section to grow */
+     background-color: #f9f9f9; /* Light grey background for text area */
+}
+
+.tour-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #333;
+    line-height: 1.4;
+}
+
+.tour-detail {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 5px;
+    /* Add display:flex and align-items:center if using real icons */
+}
+
+/* Badges */
+.card-badges {
+    padding: 0 15px 15px 15px; /* Padding below badges */
+     background-color: #f9f9f9;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 15px; /* Pill shape */
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-right: 5px;
+    margin-top: 5px; /* Space if they wrap */
+    color: white;
+    text-transform: uppercase;
+}
+
+.best-seller {
+    background-color: #FF4D6D; /* Pink/Red color */
+}
+
+.new-tour {
+     background-color: #2ECC71; /* Green color */
+}
+
+.book-now-button {
+    display: block; /* Make it full width within its container */
+    width: 100%;
+    background-color: #FF3D77; /* Pink/Red color */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.book-now-button:hover {
+    background-color: #e6366a; /* Darker shade on hover */
+}
+
+
+/* Floating Elements */
+.contact-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #FFD100; /* Yellow color */
+    border-radius: 25px; /* Rounded ends */
+    padding: 5px 15px 5px 5px; /* Adjust padding */
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+.contact-icon {
+    background-color: #005BBB; /* Blue icon background */
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    font-size: 1.2rem; /* Adjust icon size */
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.contact-info strong {
+    font-size: 1.2rem;
+    color: #005BBB; /* Blue text */
+}
+
+.contact-info span {
+    font-size: 0.8rem;
+    color: #333;
+}
+
+
+.chat-bubble {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #00AEEF; /* Blue color */
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem; /* Adjust icon/text size */
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+/* Responsive Adjustments (Example) */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column; /* Stack filters above tours on smaller screens */
+    }
+
+    .filters {
+        flex: 0 0 auto; /* Reset flex basis */
+        width: 100%; /* Full width */
+        margin-bottom: 20px;
+    }
+
+    .filter-dropdowns {
+        display: flex;
+        gap: 15px;
+    }
+    .dropdown-container {
+        flex: 1; /* Make dropdowns share space */
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    
+     .chat-bubble {
+        /* Optionally make smaller */
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+     }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container1">
+            <div class="logo">
+              <a href="index.html"><img src="Logo.jpg" alt="logo"></a>
+            </div>
+            <div class="search-container">
+              <form action="/action_page.php">
+                <input type="text" placeholder="Tìm kiếm.." name="search">
+                <button type="submit">Tìm kiếm</i></button>
+              </form>
+          </div>
+            <nav>
+                <ul>
+                  <li><a href="index.html">Trang chủ</a></li>
+                  <li><a href="Giới thiệu.html">Giới thiệu</a></li>
+                  <li><a href="booktour.html">Book tour</a></li>
+                  <li><a href="Explore the world.html">Địa điểm</a></li>
+                  <li><a href="liên hệ.html">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="page-container">
+
+        <header class="page-header">
+            <h1 style=" display: flex; justify-content: center; align-items: center; height: 200px;">TOUR DU THUYỀN</h1>
+        </header>
+
+        <section class="intro-section">
+            <p>
+                Trải nghiệm kỳ nghỉ đẳng cấp với <a href="#">tour du thuyền 5 sao</a> Intertour – Nơi hội tụ của tiện nghi sang trọng, ẩm thực tinh hoa và hành trình khám phá các điểm đến nổi bật như <strong class="highlight">Singapore</strong>, <strong class="highlight">Thái Lan</strong>, <strong class="highlight">Nhật Bản</strong>, <strong class="highlight">Hàn Quốc</strong>. Mỗi chuyến đi là sự kết hợp hoàn hảo giữa nghỉ dưỡng và khám phá, mang đến cảm giác mới mẻ, thư giãn và đầy cảm xúc. Du khách được hưởng trọn gói dịch vụ: vé máy bay, lưu trú, giải trí, bảo hiểm quốc tế cùng đội ngũ phục vụ chuyên nghiệp.
+            </p>
+        </section>
+
+        <main class="main-content">
+            <aside class="filters">
+                <h2>Chọn yêu cầu du lịch của bạn:</h2>
+                <div class="filter-option">
+                    <input type="radio" id="international" name="tour_type" value="international" checked>
+                    <label for="international">Nước ngoài</label>
+                </div>
+                <div class="filter-option">
+                    <input type="radio" id="domestic" name="tour_type" value="domestic">
+                    <label for="domestic">Trong nước</label>
+                </div>
+
+                <div class="filter-dropdowns">
+                    <div class="dropdown-container">
+                        <label for="departure">Điểm đi</label>
+                        <select id="departure" class="styled-select">
+                            <option>Điểm đi</option>
+                            <!-- Add more options here -->
+                        </select>
+                    </div>
+                    <div class="dropdown-container">
+                         <label for="destination">Điểm đến</label>
+                        <select id="destination" class="styled-select">
+                            <option>Điểm đến</option>
+                            <!-- Add more options here -->
+                        </select>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="tour-list">
+                <!-- Tour Card 1 -->
+                <article class="tour-card">
+                    <img src="thuyen1.png" alt="Tour Du Thuyền Thượng Hải - Okinawa">
+                    <div class="tour-info">
+                        <h3>(HCM-VN) Tour Du Thuyền 5 sao Tết Nguyên Đán Thượng Hải – Okinawa</h3>
+                        <p class="tour-detail">[icon] Điểm đi: TP.HCM</p>
+                        <p class="tour-detail">[icon] 6 ngày 5 đêm</p>
+                        <button class="book-now-button">ĐẶT NGAY!</button>
+                    </div>
+                </article>
+
+                <!-- Tour Card 2 -->
+                <article class="tour-card">
+                    <img src="thuyen2.png" alt="Tour Du Thuyền Thượng Hải - Busan - Fukuoka">
+                    <div class="tour-info">
+                        <h3>(HCM-VN) Tour Du Thuyền 5 sao Thượng Hải – Busan – Fukuoka</h3>
+                        <p class="tour-detail">[icon] Điểm đi: TP.HCM</p>
+                        <p class="tour-detail">[icon] 7 ngày 6 đêm</p>
+                        <button class="book-now-button">ĐẶT NGAY!</button>
+                    </div>
+                </article>
+
+                <!-- Tour Card 3 -->
+                <article class="tour-card">
+                     <img src="thuyen3.png" alt="Tour Du Thuyền Singapore - Penang">
+                    <div class="tour-info">
+                         <h3>(HCM-VN) Tour Du Thuyền 5 sao Tết Nguyên Đán Singapore – Penang – Phuket</h3>
+                         <p class="tour-detail">[icon] Điểm đi: TP.HCM</p>
+                         <p class="tour-detail">[icon] 6 ngày 5 đêm</p>
+                         <button class="book-now-button">ĐẶT NGAY!</button>
+                    </div>
+                </article>
+                <article class="tour-card">
+                    <img src="thuyen4.png" alt="Tour Du Thuyền Singapore - Penang">
+                   <div class="tour-info">
+                        <h3>(HCM-CI) Tour Du Thuyền 5 sao Đài Loan – Nhật Bản 6N5Đ</h3>
+                        <p class="tour-detail">[icon] Điểm đi: TP.HCM</p>
+                        <p class="tour-detail">[icon] 6 ngày 5 đêm</p>
+                        <button class="book-now-button">ĐẶT NGAY!</button>
+                   </div>
+               </article>
+               <article class="tour-card">
+                <img src="thuyen5.png" alt="Tour Du Thuyền Singapore - Penang">
+               <div class="tour-info">
+                    <h3>(HCM-BR) Tour Du Thuyền Đài Loan – Nhật Bản 5N4Đ – Đẳng Cấp 5 sao Quốc Tế</h3>
+                    <p class="tour-detail">[icon] Điểm đi: TP.HCM</p>
+                    <p class="tour-detail">[icon] 5 ngày 4 đêm</p>
+                    <button class="book-now-button">ĐẶT NGAY!</button>
+               </div>
+           </article>
+           <article class="tour-card">
+            <img src="thuyen6.png" alt="Tour Du Thuyền Singapore - Penang">
+           <div class="tour-info">
+                <h3>(HCM-VN) Tour Du Thuyền 5 sao Singapore – Malaysia 4N3Đ</h3>
+                <p class="tour-detail">[icon] Điểm đi: TP.HCM</p>
+                <p class="tour-detail">[icon] 4 ngày 3 đêm</p>
+                <button class="book-now-button">ĐẶT NGAY!</button>
+           </div>
+       </article>
+
+
+            </section>
+        </main>
+
+    </div> <!-- End page-container -->
+    <div class="container">
+        <div class="footer-section">
+            <div class="footer-box">
+                <h3>LIÊN HỆ VỚI CHÚNG TÔI</h3>
+                <p><span class="highlight">Địa chỉ:</span>08, Lê Duẩn, P. Nghĩa Tân, Tp. Gia Nghĩa, tỉnh Đăk Nông</p>
+                <p><span class="highlight">Hotline:</span> 0812 345 678 - 098 7654 321</p>
+                <p><span class="highlight">Thời gian làm việc:</span> T2 - T7: 09:00 - 18:00</p>
+                <p><span class="highlight">Email:</span> abc*******@gmail.com</p>
+            </div>
+            <div class="footer-box">
+                <h3>HỖ TRỢ KHÁCH HÀNG</h3>
+                <ul>
+                    <li>Hướng dẫn đặt vé</li>
+                    <li>Hướng dẫn thanh toán</li>
+                    <li>Đặt vé an toàn</li>
+                    <li>Chính sách bảo hành & hoàn vé</li>
+                    <li>Chính sách bảo mật thông tin</li>
+                </ul>
+            </div>
+            <div class="footer-box">
+                <h3>KẾT NỐI VỚI CHÚNG TÔI</h3>
+                <div class="footer-icons">
+                    <a href="https://www.facebook.com/" title="Facebook"><img src="https://cdn.pixabay.com/photo/2020/07/21/02/07/facebook-5424833_1280.png" style="width:50px;"></a>
+                    <a href="https://www.instagram.com/" title="ig"><img src="https://png.pngtree.com/png-clipart/20180626/ourmid/pngtree-instagram-icon-instagram-logo-png-image_3584852.png" style="width:60px;"></a> 
+                    <a href="https://www.google.com/maps/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Google_Maps_icon_%282020%29.svg/1428px-Google_Maps_icon_%282020%29.svg.png" style="width:30px;"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="scrollToTopBtn"></button>
+
+    <script>
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add("show");
+            } else {
+                scrollToTopBtn.classList.remove("show");
+            }
+        });
+
+       scrollToTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0, 
+                behavior: "smooth" 
+            });
+        });
+    </script>
+    <footer style="text-align: center;">
+        © 2025 THPT NCT - Designed by TD-TH
+    </footer>
+</body>
+</html>     

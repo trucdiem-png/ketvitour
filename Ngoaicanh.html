@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGOẠI CẢNH</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+          font-family: sans-serif;
+          padding: 50px;
+        }
+        .container3 {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          width: 1400px;
+          height:fit-content;
+          margin: 0 auto;
+          padding-top: 50px;
+          padding-left: -10px;
+          padding-right: -10px;
+        }
+        #highlighter--hover-tools {
+        position:relative;
+        padding-bottom: 8px;
+        z-index: 1000;
+        }
+        .destination-card {
+          width: 650px;
+          margin-bottom: 20px;
+          border-radius: 10px;
+          overflow: hidden; /* Hide overflow from image */
+          height: fit-content;
+          }
+        
+        .destination-card-header {
+          background-size: cover;
+          background-position: center;
+          color: white;
+          padding: 20px;
+          text-shadow: 2px 2px 4px #000000;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between; /* Push text to top and buttons to bottom */
+          height: 100px; /* Or adjust as needed */
+        }
+        
+        .destination-card-header h2 {
+          margin: 0;
+          font-size: 24px;
+          text-align: left;
+          position: absolute;
+          margin-top: 15px;
+        }
+        
+        .destination-buttons {
+          display: flex;
+          position: absolute;
+          margin-top: 15px;
+          margin-left: 380px;
+          
+        }
+        
+        .destination-buttons button {
+          background-color: rgba(255, 255, 255, 0.395);
+          border: 1px solid white;
+          color: rgb(255, 255, 255);
+          padding: 8px 20px;
+          margin-bottom: 20px;
+          margin-left: 10px;
+          border-radius: 15px;
+          cursor: pointer;
+          transition: background-color 0.3s ease; /* Add a smooth transition */
+        }
+        
+        .destination-buttons button:hover {
+          background-color: rgba(255, 255, 255, 0.5); /* Lighten the background on hover */
+        }
+        
+        .destination-list {
+          padding: 20px;
+        }
+        
+        .destination-list ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          flex-wrap: wrap;
+        }
+        
+        .destination-list ul li {
+          width: 33.33%; /* Adjust based on number of columns */
+          margin-bottom: 5px;
+        }
+        .destination-list ul li a{
+          text-decoration: none;
+          color:black;
+        }
+        .destination-list ul li a:hover{
+          text-decoration:underline;
+          color: blue;
+        }
+        /* Example background images */
+        #europe { background-image: url('https://cdn3.ivivu.com/2020/04/8-canh-thien-nhien-tren-the-gioi-dep-den-kho-tin-ivivu-9.jpg'); }
+        #africa { background-image: url('https://ddk.1cdn.vn/2020/12/17/image.daidoanket.vn-images-upload-linhdh-12172020-_19.jpg'); }
+        #asia { background-image: url('https://truyenhinhvov.qltns.mediacdn.vn/239964650902032384/2020/11/25/thiet-ke-khong-ten-3-1606300901371773647322.jpg'); }
+        #latin-america { background-image: url('https://cdn.alongwalker.info/img/2019/6/9/xY90jwbJqYfaa77497210df66110051cf9516219ed18ce74e81368576272.jpg'); }
+        #australia-oceania { background-image: url('https://cpatravel.com.vn/pic/News/images/mua-thu-nuoc-uc-12.jpeg'); }
+        
+        @media (max-width: 768px) {
+          .destination-card {
+            width: 100%; /* Full width on smaller screens */
+          }
+        
+          .destination-list ul li {
+            width: 50%; /* Adjust for smaller screens */
+          }
+        }
+        </style>
+</head>
+<body>
+    <header>
+        <div class="container1">
+            <div class="logo">
+              <a href="index.html"><img src="Logo.jpg" alt="logo"></a>
+            </div>
+            <div class="search-container">
+              <form action="/action_page.php">
+                <input type="text" placeholder="Tìm kiếm.." name="search">
+                <button type="submit">Tìm kiếm</i></button>
+              </form>
+          </div>
+            <nav>
+                <ul>
+                  <li><a href="index.html">Trang chủ</a></li>
+                  <li><a href="Giới thiệu.html">Giới thiệu</a></li>
+                  <li><a href="booktour.html">Book tour</a></li>
+                  <li><a href="Explore the world.html">Địa điểm</a></li>
+                  <li><a href="liên hệ.html">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <h1 style="font-family:'Times New Roman', Times, serif; font-size: 40px; text-align: center; padding-top: 20px;">KHÁM PHÁ THẾ GIỚI</h1>
+
+    <div class="container3">
+    
+      <div class="destination-card">
+        <div class="destination-card-header" id="europe">
+          <h2>Europe</h2>
+          <div class="destination-buttons">
+            <button>All Adventures</button>
+            <button>Deals</button>
+          </div>
+        </div>
+        <div class="destination-list">
+          <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Amalfi_Coast" target="_blank" rel="noopener noreferrer">Amalfi Coast</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Eastern_Europe" target="_blank" rel="noopener noreferrer">Eastern Europe</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/France" target="_blank" rel="noopener noreferrer">France</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Greece" target="_blank" rel="noopener noreferrer">Greece</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Republic_of_Ireland" target="_blank" rel="noopener noreferrer">Ireland</a></li> <!-- Hoặc chỉ /Ireland nếu muốn chỉ hòn đảo -->
+            <li><a href="https://en.wikipedia.org/wiki/Norway" target="_blank" rel="noopener noreferrer">Norway</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Iberian_Peninsula" target="_blank" rel="noopener noreferrer">Portugal & Spain</a></li> <!-- Link tới bán đảo Iberia bao gồm cả hai -->
+            <li><a href="https://en.wikipedia.org/wiki/Sicily" target="_blank" rel="noopener noreferrer">Sicily</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Turkey" target="_blank" rel="noopener noreferrer">Turkey</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Austria" target="_blank" rel="noopener noreferrer">Austria</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/England" target="_blank" rel="noopener noreferrer">England</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Germany" target="_blank" rel="noopener noreferrer">Germany</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Islands_of_Greece" target="_blank" rel="noopener noreferrer">Greek Islands</a></li> <!-- Link tới danh sách/khái niệm các đảo Hy Lạp -->
+            <li><a href="https://en.wikipedia.org/wiki/Italy" target="_blank" rel="noopener noreferrer">Italy</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Poland" target="_blank" rel="noopener noreferrer">Poland</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Scandinavia" target="_blank" rel="noopener noreferrer">Scandinavia</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Spain" target="_blank" rel="noopener noreferrer">Spain</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Tuscany" target="_blank" rel="noopener noreferrer">Tuscany</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Croatia" target="_blank" rel="noopener noreferrer">Croatia</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Finland" target="_blank" rel="noopener noreferrer">Finland</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/United_Kingdom" target="_blank" rel="noopener noreferrer">Great Britain & UK</a></li> <!-- Link tới UK bao gồm cả Great Britain -->
+            <li><a href="https://en.wikipedia.org/wiki/Iceland" target="_blank" rel="noopener noreferrer">Iceland</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Netherlands" target="_blank" rel="noopener noreferrer">Netherlands</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Portugal" target="_blank" rel="noopener noreferrer">Portugal</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Scotland" target="_blank" rel="noopener noreferrer">Scotland</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Switzerland" target="_blank" rel="noopener noreferrer">Switzerland</a></li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="destination-card">
+        <div class="destination-card-header" id="africa">
+          <h2>Africa</h2>
+          <div class="destination-buttons">
+            <button>All Adventures</button>
+            <button>Deals</button>
+          </div>
+        </div>
+        <div class="destination-list">
+          <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Egypt" target="_blank" rel="noopener noreferrer">Egypt</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Namibia" target="_blank" rel="noopener noreferrer">Namibia</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Kenya" target="_blank" rel="noopener noreferrer">Kenya</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/South_Africa" target="_blank" rel="noopener noreferrer">South Africa</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Morocco" target="_blank" rel="noopener noreferrer">Morocco</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Tanzania" target="_blank" rel="noopener noreferrer">Tanzania</a></li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="destination-card">
+        <div class="destination-card-header" id="asia">
+          <h2>Asia</h2>
+          <div class="destination-buttons">
+            <button>All Adventures</button>
+            <button>Deals</button>
+          </div>
+        </div>
+        <div class="destination-list">
+          <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Bali" target="_blank" rel="noopener noreferrer">Bali</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/China" target="_blank" rel="noopener noreferrer">China</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/India" target="_blank" rel="noopener noreferrer">India</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Japan" target="_blank" rel="noopener noreferrer">Japan</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Nepal" target="_blank" rel="noopener noreferrer">Nepal</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Sri_Lanka" target="_blank" rel="noopener noreferrer">Sri Lanka</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Bhutan" target="_blank" rel="noopener noreferrer">Bhutan</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Georgia_(country)" target="_blank" rel="noopener noreferrer">Georgia</a></li> <!-- Thêm (country) để phân biệt với bang của Mỹ -->
+            <li><a href="https://en.wikipedia.org/wiki/Indonesia" target="_blank" rel="noopener noreferrer">Indonesia</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Jordan" target="_blank" rel="noopener noreferrer">Jordan</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/South_Korea" target="_blank" rel="noopener noreferrer">South Korea</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Thailand" target="_blank" rel="noopener noreferrer">Thailand</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Cambodia" target="_blank" rel="noopener noreferrer">Cambodia</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Holy_Land" target="_blank" rel="noopener noreferrer">Holy Land</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Israel" target="_blank" rel="noopener noreferrer">Israel</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Malaysia" target="_blank" rel="noopener noreferrer">Malaysia</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Southeast_Asia" target="_blank" rel="noopener noreferrer">Southeast Asia</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Vietnam" target="_blank" rel="noopener noreferrer">Vietnam</a></li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="destination-card">
+        <div class="destination-card-header" id="latin-america">
+          <h2>Latin America</h2>
+          <div class="destination-buttons">
+            <button>All Adventures</button>
+            <button>Deals</button>
+          </div>
+        </div>
+        <div class="destination-list">
+          <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Argentina" target="_blank" rel="noopener noreferrer">Argentina</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Colombia" target="_blank" rel="noopener noreferrer">Colombia</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Brazil" target="_blank" rel="noopener noreferrer">Brazil</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Costa_Rica" target="_blank" rel="noopener noreferrer">Costa Rica</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Chile" target="_blank" rel="noopener noreferrer">Chile</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Ecuador" target="_blank" rel="noopener noreferrer">Ecuador</a></li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="destination-card">
+        <div class="destination-card-header" id="australia-oceania">
+          <h2>Australia/Oceania</h2>
+          <div class="destination-buttons">
+            <button>All Adventures</button>
+            <button>Deals</button>
+          </div>
+        </div>
+        <div class="destination-list">
+          <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Sydney" target="_blank" rel="noopener noreferrer">Sydney</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Melbourne" target="_blank" rel="noopener noreferrer">Melbourne</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Auckland" target="_blank" rel="noopener noreferrer">Auckland</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Fiji" target="_blank" rel="noopener noreferrer">Fiji</a></li>
+          </ul>
+        </div>
+      </div>
+    
+    </div>
+    <div class="services-container">
+      <div class="service-box">
+          <img src="image (2).png" alt="Free Shipping" style="width: 80px">
+          <h3>Đưa đón tận nơi</h3>
+          <p>Miễn phí đưa đón tận nơi</p>
+      </div>
+      <div class="service-box">
+          <img src="https://shop.thuviencokhi.com/wp-content/uploads/2018/06/icon-chat-luong.png" alt="Quality Assurance" style="width: 60px ;">
+          <h3>CHẤT LƯỢNG ĐẢM BẢO</h3>
+          <p>Đảm bảo an toàn và chất lượng</p>
+      </div>
+      <div class="service-box">
+          <img src="image.png" alt="Easy Returns" style="width: 100px">
+          <h3>MIỄN PHÍ HỦY VÉ</h3>
+          <p>Miễn phí hoàn tour trong vòng 7 ngày</p>
+      </div>
+  </div>
+  <div class="container">
+      <div class="footer-section">
+          <div class="footer-box">
+              <h3>LIÊN HỆ VỚI CHÚNG TÔI</h3>
+              <p><span class="highlight">Địa chỉ:</span>08, Lê Duẩn, P. Nghĩa Tân, Tp. Gia Nghĩa, tỉnh Đăk Nông</p>
+              <p><span class="highlight">Hotline:</span> 0812 345 678 - 098 7654 321</p>
+              <p><span class="highlight">Thời gian làm việc:</span> T2 - T7: 09:00 - 18:00</p>
+              <p><span class="highlight">Email:</span> abc*******@gmail.com</p>
+          </div>
+          <div class="footer-box">
+              <h3>HỖ TRỢ KHÁCH HÀNG</h3>
+              <ul>
+                  <li>Hướng dẫn đặt vé</li>
+                  <li>Hướng dẫn thanh toán</li>
+                  <li>Đặt vé an toàn</li>
+                  <li>Chính sách bảo hành & hoàn vé</li>
+                  <li>Chính sách bảo mật thông tin</li>
+              </ul>
+          </div>
+          <div class="footer-box">
+              <h3>KẾT NỐI VỚI CHÚNG TÔI</h3>
+              <div class="footer-icons">
+                  <a href="https://www.facebook.com/" title="Facebook"><img src="https://cdn.pixabay.com/photo/2020/07/21/02/07/facebook-5424833_1280.png" style="width:50px;"></a>
+                  <a href="https://www.instagram.com/" title="ig"><img src="https://png.pngtree.com/png-clipart/20180626/ourmid/pngtree-instagram-icon-instagram-logo-png-image_3584852.png" style="width:60px;"></a> 
+                  <a href="https://www.google.com/maps/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Google_Maps_icon_%282020%29.svg/1428px-Google_Maps_icon_%282020%29.svg.png" style="width:30px;"></a>
+              </div>
+          </div>
+      </div>
+  </div>
+  <button id="scrollToTopBtn"></button>
+
+    <script>
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add("show");
+            } else {
+                scrollToTopBtn.classList.remove("show");
+            }
+        });
+
+       scrollToTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0, 
+                behavior: "smooth" 
+            });
+        });
+    </script>
+    <footer style="text-align: center;">
+      © 2025 THPT NCT - Designed by TD-TH
+  </footer>
+</body>
+</html>

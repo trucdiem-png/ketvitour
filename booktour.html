@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOK TOUR</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            padding: 10px;
+            width: 800px; 
+            box-sizing: border-box; 
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-field {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+        }
+
+        .input-wrapper {
+            display: flex;
+            align-items: center;
+            border-right: 2px inset #ddd; 
+            padding-right: 10px; 
+            margin-right: 10px;
+        }
+
+        .separator {
+            height: 30px;
+            width: 1px;
+            background-color: #ddd;
+            margin: 0 10px;
+        }
+
+        .search-button {
+            background-color: #2692b9;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 50px;
+        }
+
+        .icon {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container1">
+            <div class="logo">
+              <a href="index.html"><img src="Logo.jpg" alt="logo"></a>
+            </div>
+            <div class="search-container">
+              <form action="/action_page.php">
+                <input type="text" placeholder="Tìm kiếm.." name="search">
+                <button type="submit">Tìm kiếm</i></button>
+              </form>
+          </div>
+            <nav>
+              <ul>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="Giới thiệu.html">Giới thiệu</a></li>
+                <li><a href="booktour.html">Book tour</a></li>
+                <li><a href="Explore the world.html">Địa điểm</a></li>
+                <li><a href="liên hệ.html">Liên hệ</a></li>
+            </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <div class="input-wrapper">
+            <span class="icon">📍</span>
+            <input type="text" class="input-field" placeholder="Where to?">
+        </div>
+        <div class="separator"></div>
+        <div class="input-wrapper">
+            <span class="icon">📅</span>
+            <input type="date" class="input-field" placeholder="When?">
+        </div>
+        <div class="separator"></div>
+        <div style="display: flex; align-items: center; margin-right: 10px;">
+          <span class="icon">👥</span>
+            <input type="email" class="input-field" placeholder="All adventures">
+        </div>
+        <button class="search-button">Search</button>
+      </div>
+      
+  <div>
+    <div class="hero-section">
+      <img src="booktour1.jpg" alt="Hero Image" class="hero-image">
+      <div class="hero-content">
+        <h1>Book the Best Tours & River Cruises</h1>
+        <p>Choose from thousands of Organized Adventures</p>
+      </div>
+      <div class="slider-buttons">
+          <button class="slider-arrow" onclick="scrollChunk(-1)"><</button>
+          <button class="slider-arrow" onclick="scrollChunk(1)">></button>
+      </div>
+    </div>
+      <div class="category-section" id="categorySlider">
+        <a href="#"><div class="category-card">
+            <img src="booktour2.png" alt="New on TourRadar">
+            <h3>New on TourRadar</h3>
+        </div></a>
+        <a href="#"><div class="category-card">
+            <img src="booktour3.png" alt="TourRadar Curated">
+            <h3>TourRadar Curated</h3>
+        </div></a>
+        <a href="https://transviet.com.vn/area/tour-du-lich-chau-au-eu"><div class="category-card">
+            <img src="booktour4.jpeg" alt="Europe">
+            <h3>Europe</h3>
+        </div></a>
+        <a href="https://transviet.com.vn/area/tour-du-lich-tay-ban-nha-es"><div class="category-card">
+            <img src="booktour5.jpg" alt="Spain">
+            <h3>Spain</h3>
+        </div></a>
+        <a href="https://dulichviet.com.vn/tin-tuc/kinh-nghiem-du-lich-y"><div class="category-card">
+            <img src="booktour6.jpeg" alt="Italy">
+            <h3>Italy</h3>
+        </div></a>
+        <a href="https://dulichokela.com/du-lich-nhat-ban/?gad_source=1&gad_campaignid=20624296462&gclid=Cj0KCQjwtpLABhC7ARIsALBOCVrd54eQ8pfesa8370-V9YatRenVDCmNLiUa3Zgfwf9yN4QKF0XPdC8aAvAoEALw_wcB"><div class="category-card">
+            <img src="booktour4.jpeg" alt="Europe">
+            <h3>Japan</h3>
+        </div></a>
+        <a href="https://dulichokela.com/du-lich-trung-quoc/?gad_source=1&gad_campaignid=19894645917&gclid=Cj0KCQjwtpLABhC7ARIsALBOCVpEQicWH7ydrBdjze82eQzNUGvjsHOwjJAcjjmsO_KvDhKmFN0r4L8aArMNEALw_wcB"><div class="category-card">
+            <img src="booktour5.jpg" alt="Spain">
+            <h3>China</h3>
+        </div></a>
+        <a href="https://dulichokela.com/du-lich-nuoc-ngoai/du-lich-chau-au/du-lich-anh-quoc/tour-du-lich-anh-scotland-ngam-hoa-lavender-9-ngay-8-dem/?gad_source=1&gad_campaignid=22311865393&gclid=Cj0KCQjwtpLABhC7ARIsALBOCVqW4Itfa5qkZi5yjGUpZtdlSWwJMyDztWgpWSp7Cw6v_-7Tya8eozwaAtG6EALw_wcB"><div class="category-card">
+            <img src="booktour6.jpeg" alt="Italy">
+            <h3>England</h3>
+        </div></a>
+        <a href="https://toptentravel.com.vn/tour-du-lich-bo-tay-nuoc-my?gad_source=1&gad_campaignid=21717486194&gclid=Cj0KCQjwtpLABhC7ARIsALBOCVot6tlgWyIyCuhR7GQJt424M_kySfJnox5sABkyb_hyEwA0ZysjJkUaAj1rEALw_wcB"><div class="category-card">
+          <img src="booktour5.jpg" alt="Spain">
+          <h3>America</h3>
+      </div></a>
+      <a href="https://travel.com.vn/du-lich-an-do.aspx"><div class="category-card">
+          <img src="booktour6.jpeg" alt="Italy">
+          <h3>India</h3>
+      </div></a>
+    </div>
+  </div>
+                
+      <script>
+        const cardWidth = 250;  // MUST match CSS width of .category-card
+        const cardMarginRight = 15;  // MUST match CSS margin-right of .category-card
+        const scrollAmount = (cardWidth + cardMarginRight)*5 + 30;
+    
+        function scrollChunk(direction) {
+            const slider = document.getElementById('categorySlider');
+            slider.scrollLeft += direction * scrollAmount;
+        }
+        </script>
+ 
+
+<div class="container2">
+    <div class="trending-section">
+      <h2>Trending Adventures</h2>
+      <a href="#">See deals</a>
+    </div>
+    <div class="adventure-list">
+      <div class="adventure-card">
+        <div class="adventure-image-container">
+          <img src="booktour5.jpg" alt="Europe Taster" class="adventure-image">
+          <div class="discount-badge">-44% OFF</div>
+        </div>
+        <div class="adventure-info">
+          <h3 class="adventure-name">Europe Taster</h3>
+          <p class="adventure-details">7 days • 4.5 <span class="adventure-rating">★</span> (303)</p>
+          <p class="adventure-price">
+            From <span class="original-price">$1,655</span> <span class="discounted-price">$927</span>
+          </p>
+        </div>
+      </div>
+  
+      <div class="adventure-card">
+        <div class="adventure-image-container">
+          <img src="booktour4.jpeg" alt="Amalfi Coast Walking" class="adventure-image">
+        </div>
+        <div class="adventure-info">
+          <h3 class="adventure-name">Amalfi Coast Walking - Agriturismo</h3>
+          <p class="adventure-details">8 days • 4.6 <span class="adventure-rating">★</span> (147)</p>
+          <p class="adventure-price">From $1,930</p>
+        </div>
+      </div>
+      <div class="adventure-card">
+        <div class="adventure-image-container">
+          <img src="booktour5.jpg" alt="Costa Rica Quest" class="adventure-image">
+          <div class="discount-badge">-15% OFF</div>
+        </div>
+        <div class="adventure-info">
+          <h3 class="adventure-name">Costa Rica Quest</h3>
+          <p class="adventure-details">9 days • 4.8 <span class="adventure-rating">★</span> (291)</p>
+          <p class="adventure-price">
+            From <span class="original-price">$1,299</span> <span class="discounted-price">$1,104</span>
+          </p>
+        </div>
+      </div>
+  
+      <div class="adventure-card">
+        <div class="adventure-image-container">
+          <img src="booktour6.jpeg" alt="Best Of Vietnam" class="adventure-image">
+          <div class="discount-badge">-52% OFF</div>
+        </div>
+        <div class="adventure-info">
+          <h3 class="adventure-name">Best Of Vietnam In 14 Days</h3>
+          <p class="adventure-details">14 days • 4.8 <span class="adventure-rating">★</span> (72)</p>
+          <p class="adventure-price">
+            From <span class="original-price">$1,998</span> <span class="discounted-price">$959</span>
+          </p>
+        </div>
+      </div>
+  
+      <div class="adventure-card">
+        <div class="adventure-image-container">
+          <img src="booktour6.jpeg" alt="Spanish Wonder" class="adventure-image">
+          <div class="discount-badge">-10% OFF</div>
+        </div>
+        <div class="adventure-info">
+          <h3 class="adventure-name">Spanish Wonder (End Barcelona, 9 Days)</h3>
+          <p class="adventure-details">9 days • 4.6 <span class="adventure-rating">★</span> (27)</p>
+          <p class="adventure-price">
+            From <span class="original-price">$2,795</span> <span class="discounted-price">$2,516</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="services-container">
+    <div class="service-box">
+        <img src="image (2).png" alt="Free Shipping" style="width: 80px">
+        <h3>Đưa đón tận nơi</h3>
+        <p>Miễn phí đưa đón tận nơi</p>
+    </div>
+    <div class="service-box">
+        <img src="https://shop.thuviencokhi.com/wp-content/uploads/2018/06/icon-chat-luong.png" alt="Quality Assurance" style="width: 60px ;">
+        <h3>CHẤT LƯỢNG ĐẢM BẢO</h3>
+        <p>Đảm bảo an toàn và chất lượng</p>
+    </div>
+    <div class="service-box">
+        <img src="image.png" alt="Easy Returns" style="width: 100px">
+        <h3>MIỄN PHÍ HỦY VÉ</h3>
+        <p>Miễn phí hoàn tour trong vòng 7 ngày</p>
+    </div>
+</div>
+<div class="container">
+    <div class="footer-section" style="width: 1200px;">
+        <div class="footer-box">
+            <h3>LIÊN HỆ VỚI CHÚNG TÔI</h3>
+            <p><span class="highlight">Địa chỉ:</span>08, Lê Duẩn, P. Nghĩa Tân, Tp. Gia Nghĩa, tỉnh Đăk Nông</p>
+            <p><span class="highlight">Hotline:</span> 0812 345 678 - 098 7654 321</p>
+            <p><span class="highlight">Thời gian làm việc:</span> T2 - T7: 09:00 - 18:00</p>
+            <p><span class="highlight">Email:</span> abc*******@gmail.com</p>
+        </div>
+        <div class="footer-box">
+            <h3>HỖ TRỢ KHÁCH HÀNG</h3>
+            <ul>
+                <li>Hướng dẫn đặt vé</li>
+                <li>Hướng dẫn thanh toán</li>
+                <li>Đặt vé an toàn</li>
+                <li>Chính sách bảo hành & hoàn vé</li>
+                <li>Chính sách bảo mật thông tin</li>
+            </ul>
+        </div>
+        <div class="footer-box">
+            <h3>KẾT NỐI VỚI CHÚNG TÔI</h3>
+            <div class="footer-icons">
+                <a href="https://www.facebook.com/" title="Facebook"><img src="https://cdn.pixabay.com/photo/2020/07/21/02/07/facebook-5424833_1280.png" style="width:50px;"></a>
+                <a href="https://www.instagram.com/" title="ig"><img src="https://png.pngtree.com/png-clipart/20180626/ourmid/pngtree-instagram-icon-instagram-logo-png-image_3584852.png" style="width:60px;"></a> 
+                <a href="https://www.google.com/maps/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Google_Maps_icon_%282020%29.svg/1428px-Google_Maps_icon_%282020%29.svg.png" style="width:30px;"></a>
+            </div>
+        </div>
+    </div>
+</div>
+  <button id="scrollToTopBtn"></button>
+
+    <script>
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add("show");
+            } else {
+                scrollToTopBtn.classList.remove("show");
+            }
+        });
+
+       scrollToTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0, 
+                behavior: "smooth" 
+            });
+        });
+    </script>
+    <footer style="text-align: center;">
+      © 2025 THPT NCT - Designed by TD-TH
+  </footer>
+   </body>
+  </html>

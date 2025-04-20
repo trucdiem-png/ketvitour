@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel The World Your Way</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Thêm Font Awesome để có icons (ví dụ) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f8f9fa; /* Màu nền nhẹ */
+    color: #333;
+}
+
+.travel-container3 {
+    max-width: 1200px; /* Giới hạn chiều rộng tối đa */
+    margin: 0 auto; /* Căn giữa container */
+}
+
+h1 {
+    font-size: 2em; /* Kích thước lớn hơn cho tiêu đề chính */
+    margin-bottom: 30px;
+    font-weight: 600;
+    color: #212529;
+}
+
+.category-section3 {
+    margin-bottom: 40px; /* Khoảng cách giữa các phần */
+    
+}
+
+.category-header3 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.category-icon3 {
+    font-size: 1.4em;
+    margin-right: 10px;
+    color: #555; /* Màu icon */
+    width: 25px; /* Đảm bảo icon có không gian */
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.3em;
+    font-weight: 500;
+    margin: 0; /* Bỏ margin mặc định của h2 */
+    color: #343a40;
+}
+
+.items-wrapper3 {
+    position: relative; /* Cần thiết để định vị nút mũi tên */
+}
+.items-wrapper3 .items-scroll3 a{
+    text-decoration: none;
+}
+
+.items-scroll3 {
+    display: flex;
+    gap: 15px; /* Khoảng cách giữa các thẻ item */
+    overflow-x: auto; /* Cho phép cuộn ngang */
+    padding-bottom: 15px; /* Thêm khoảng trống để thanh cuộn không che mất shadow */
+    /* Tùy chọn: Ẩn thanh cuộn (vẫn cuộn được bằng cách kéo hoặc dùng mũi tên) */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+.items-scroll3::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.item-card3 {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 8px; /* Bo góc nhẹ */
+    padding: 8px 15px 8px 8px; /* Padding bên trong thẻ */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+    flex-shrink: 0; /* Ngăn các item bị co lại khi không đủ chỗ */
+    width: 250px; /* Chiều rộng tối thiểu, có thể điều chỉnh */
+    cursor: pointer;
+    transition: box-shadow 0.2s ease;
+}
+
+.item-card3:hover {
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Bóng rõ hơn khi hover */
+}
+
+.item-card3 img {
+    width: 50px; /* Kích thước ảnh */
+    height: 50px;
+    border-radius: 6px; /* Bo góc ảnh */
+    margin-right: 12px; /* Khoảng cách giữa ảnh và text */
+    object-fit: cover; /* Đảm bảo ảnh không bị méo */
+}
+
+.item-card3 span {
+    font-size: 0.95em;
+    font-weight: 500;
+    color: #495057;
+    white-space: nowrap; /* Ngăn text xuống dòng nếu quá dài */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.arrow-button3 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 50%; /* Làm cho nút tròn */
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    z-index: 10; /* Đảm bảo nút nổi lên trên */
+}
+
+.arrow-button3:hover {
+    background-color: #f1f1f1;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.arrow-button3 i {
+    color: #555;
+    font-size: 0.9em;
+}
+
+.next-arrow3 {
+    right: -18px; /* Đặt nút hơi ra ngoài lề phải một chút */
+}
+
+/* Responsive điều chỉnh vị trí nút mũi tên trên màn hình nhỏ hơn nếu cần */
+@media (max-width: 1250px) {
+    .next-arrow3 {
+        right: 5px; /* Đưa nút vào trong nếu container chạm viền màn hình */
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    h2 {
+        font-size: 1.1em;
+    }
+    .item-card3 {
+        min-width: 160px;
+        padding: 6px 12px 6px 6px;
+    }
+    .item-card3 img {
+        width: 45px;
+        height: 45px;
+    }
+    .arrow-button3 {
+        width: 32px;
+        height: 32px;
+    }
+    .next-arrow3 {
+        right: 2px;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container1">
+            <div class="logo">
+                <a href="index.html"><img src="Logo.jpg" alt="logo"></a>
+            </div>
+            <div class="search-container">
+                <form action="/action_page.php">
+                  <input type="text" placeholder="Tìm kiếm.." name="search">
+                  <button type="submit">Tìm kiếm</i></button>
+                </form>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="Giới thiệu.html">Giới thiệu</a></li>
+                    <li><a href="booktour.html">Book tour</a></li>
+                    <li><a href="Explore the world.html">Địa điểm</a></li>
+                    <li><a href="liên hệ.html">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="travel-container3">
+        <h1>Travel The World Your Way</h1>
+
+        <!-- Hiking & Trekking Section -->
+        <section class="category-section3">
+            <div class="category-header3">
+                <i class="fas fa-hiking category-icon3"></i>
+                <h2>Hiking & Trekking</h2>
+            </div>
+            <div class="items-wrapper3">
+                <div class="items-scroll3">
+                    <a href="https://www.lonelyplanet.com/destinations/nepal"><div class="item-card3">
+                        <img src="Nepal.jpg" alt="Nepal">
+                        <span>Nepal</span>
+                    </div></a>
+                    <a href="https://www.tibettravel.org/tibet-everest-base-camp-tour/?gad_source=1&gbraid=0AAAAAD-efLqlSqVX6MNjHihP35uiOmwy4&gclid=Cj0KCQjwh_i_BhCzARIsANimeoE1fOxvpfKGFU2ncHMclaXMZq3DstojrVJ8wSeOEg3qNN_vXJdhpxYaAgwiEALw_wcB"><div class="item-card3">
+                        <img src="Everest Base Camp.jpg" alt="Everest Base Camp">
+                        <span>Everest Base Camp</span>
+                    </div></a>
+                   <a href="https://gotoperu.com/?gad_source=1&gbraid=0AAAAABbIp2gdGvtMOnQqkBYW62irjiRok&gclid=Cj0KCQjwh_i_BhCzARIsANimeoFnpFYxpQUu7ySS0ePwAJ2bPUCToIn0Ibu_r9QOS0mJRJG2nf316rUaAlHxEALw_wcB"><div class="item-card3">
+                        <img src="Machu Picchu.jpg" alt="Machu Picchu">
+                        <span>Machu Picchu</span>
+                    </div></a>
+                    <a href="https://www.tanzaniajoytours.com/climbing-kilimanjaro/?gad_source=1&gbraid=0AAAAADoPNelhStSGRVnsFr4Fticlt0zpn&gclid=Cj0KCQjwh_i_BhCzARIsANimeoG37fIBkoj3JLC3e2YrK9csKbrYGvHSya9ZLSLcHhiFV8maeubNrSEaAgmyEALw_wcB"><div class="item-card3">
+                        <img src="Kilimanjaro.jpg" alt="Kilimanjaro">
+                        <span>Kilimanjaro</span>
+                    </div></a>
+                    <a href="https://eltrentranscantabrico.com/en/?gad_source=1&gbraid=0AAAAACUM647K1MazfDoyZ9cIizDBgg8Rp&gclid=Cj0KCQjwh_i_BhCzARIsANimeoHC8xZJ3e9y32M8on7PK3izHKiHhyPbaYwE4H6sO0SArFkGHJJnOdoaAtCYEALw_wcB"><div class="item-card3">
+                        <img src="Spain.jpg" alt="Spain">
+                        <span>Spain</span>
+                    </div></a>
+                     <!-- Thêm các item khác nếu cần -->
+                </div>
+                <button class="arrow-button3 next-arrow3"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+        
+
+        <!-- River Cruises Section -->
+        <section class="category-section3">
+            <div class="category-header3">
+                <i class="fas fa-ship category-icon3"></i>
+                <h2>River Cruises</h2>
+            </div>
+            <div class="items-wrapper3">
+                <div class="items-scroll3">
+                    <div class="item-card3">
+                        <img src="Nile.jpg" alt="Nile">
+                        <span>Nile</span>
+                    </div>
+                    <div class="item-card3">
+                        <img src="Danube.jpg" alt="Danube">
+                        <span>Danube</span>
+                    </div>
+                    <div class="item-card3">
+                        <img src="Rhine.jpg" alt="Rhine">
+                        <span>Rhine</span>
+                    </div>
+                    <div class="item-card3">
+                        <img src="Main.jpg" alt="Main">
+                        <span>Main</span>
+                    </div>
+                    <div class="item-card3">
+                        <img src="Mekong.jpg" alt="Mekong">
+                        <span>Mekong</span>
+                    </div>
+                     <!-- Thêm các item khác nếu cần -->
+                </div>
+                <button class="arrow-button3 next-arrow3"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <!-- Safari Section -->
+        <section class="category-section3">
+            <div class="category-header3">
+                 <!-- Sử dụng icon sư tử cho Safari -->
+                <i class="fas fa-paw category-icon3"></i>
+                <h2>Safari</h2>
+            </div>
+             <div class="items-wrapper3">
+                <div class="items-scroll3">
+                    <div class="item-card3">
+                        <img src="Africa.jpg" alt="Africa">
+                        <span>Africa</span>
+                    </div>
+                    <div class="item-card3">
+                        <img src="Tanzania.jpg" alt="Tanzania">
+                        <span>Tanzania</span>
+                    </div>
+                    <div class="item-card3">
+                        <img src="Kenya.jpg" alt="Kenya">
+                        <span>Kenya</span>
+                    </div>
+                    <div class="item-card3">
+                        <img src="South Africa.jpg" alt="South Africa">
+                        <span>South Africa</span>
+                    </div>
+                    <div class="item-card3">
+                        <img src="Botswana.jpg" alt="Botswana">
+                        <span>Botswana</span>
+                    </div>
+                     <!-- Thêm các item khác nếu cần -->
+                </div>
+                 <button class="arrow-button3 next-arrow3"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+    </div>
+    <div class="services-container">
+        <div class="service-box">
+            <img src="image (2).png" alt="Free Shipping" style="width: 80px">
+            <h3>Đưa đón tận nơi</h3>
+            <p>Miễn phí đưa đón tận nơi</p>
+        </div>
+        <div class="service-box">
+            <img src="https://shop.thuviencokhi.com/wp-content/uploads/2018/06/icon-chat-luong.png" alt="Quality Assurance" style="width: 60px ;">
+            <h3>CHẤT LƯỢNG ĐẢM BẢO</h3>
+            <p>Đảm bảo an toàn và chất lượng</p>
+        </div>
+        <div class="service-box">
+            <img src="image.png" alt="Easy Returns" style="width: 100px">
+            <h3>MIỄN PHÍ HỦY VÉ</h3>
+            <p>Miễn phí hoàn tour trong vòng 7 ngày</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="footer-section">
+            <div class="footer-box">
+                <h3>LIÊN HỆ VỚI CHÚNG TÔI</h3>
+                <p><span class="highlight">Địa chỉ:</span>08, Lê Duẩn, P. Nghĩa Tân, Tp. Gia Nghĩa, tỉnh Đăk Nông</p>
+                <p><span class="highlight">Hotline:</span> 0812 345 678 - 098 7654 321</p>
+                <p><span class="highlight">Thời gian làm việc:</span> T2 - T7: 09:00 - 18:00</p>
+                <p><span class="highlight">Email:</span> abc*******@gmail.com</p>
+            </div>
+            <div class="footer-box">
+                <h3>HỖ TRỢ KHÁCH HÀNG</h3>
+                <ul>
+                    <li>Hướng dẫn đặt vé</li>
+                    <li>Hướng dẫn thanh toán</li>
+                    <li>Đặt vé an toàn</li>
+                    <li>Chính sách bảo hành & hoàn vé</li>
+                    <li>Chính sách bảo mật thông tin</li>
+                </ul>
+            </div>
+            <div class="footer-box">
+                <h3>KẾT NỐI VỚI CHÚNG TÔI</h3>
+                <div class="footer-icons">
+                    <a href="https://www.facebook.com/" title="Facebook"><img src="https://cdn.pixabay.com/photo/2020/07/21/02/07/facebook-5424833_1280.png" style="width:50px;"></a>
+                    <a href="https://www.instagram.com/" title="ig"><img src="https://png.pngtree.com/png-clipart/20180626/ourmid/pngtree-instagram-icon-instagram-logo-png-image_3584852.png" style="width:60px;"></a> 
+                    <a href="https://www.google.com/maps/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Google_Maps_icon_%282020%29.svg/1428px-Google_Maps_icon_%282020%29.svg.png" style="width:30px;"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="scrollToTopBtn"></button>
+
+    <script>
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add("show");
+            } else {
+                scrollToTopBtn.classList.remove("show");
+            }
+        });
+
+       scrollToTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0, 
+                behavior: "smooth" 
+            });
+        });
+    </script>  
+    <footer style="text-align: center;">
+        © 2025 THPT NCT - Designed by TD-TH
+    </footer>
+</body>
+</html>

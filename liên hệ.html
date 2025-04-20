@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ Booktour</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f2f2f2;
+        }
+        .contact-container {
+            display: flex;
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .contact-form {
+            flex: 1;
+            padding: 20px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .contact-form textarea {
+            height: 100px;
+        }
+        .contact-form button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contact-info {
+            background: linear-gradient(to right, #007bff, #00c6ff);
+            color: white;
+            padding: 20px;
+            width: 250px;
+        }
+        .contact-info h2 {
+            margin-top: 0;
+        }
+        .contact-info p {
+            margin: 10px 0;
+        }
+        .social-icons a {
+            color: white;
+            margin-right: 10px;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        function handleSubmit() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let phone = document.getElementById("phone").value;
+            let title = document.getElementById("title").value;
+            let message = document.getElementById("message").value;
+            
+            if (!name || !email || !phone || !title || !message) {
+                alert("Vui lòng nhập đầy đủ thông tin!");
+                return;
+            }
+            
+            alert("Đã gửi thành công!");
+            window.location.href = "booktour.html"; 
+        }
+    </script>
+</head>
+<body>
+    
+    <div class="contact-container">
+        <div class="contact-form">
+            <input type="text" id="name" placeholder="Tên của bạn">
+            <input type="email" id="email" placeholder="Địa chỉ Email">
+            <input type="text" id="phone" placeholder="Số điện thoại">
+            <input type="text" id="title" placeholder="Tiêu đề">
+            <textarea id="message" placeholder="Nội dung"></textarea>
+            <button onclick="handleSubmit()">Gửi</button>
+        </div>
+        <div class="contact-info">
+            <h2>Thông tin liên hệ</h2>
+            <p>📍 THPT Chuyên NCT, phường Nghĩa Tân, Gia Nghĩa, Đắk Nông</p>
+            <p>📞 +84 324 545 762</p>
+            <div class="social-icons">
+            <p>Mọi thông tin chi tiết liên hệ tại đây:</p>
+                <a href="https://www.facebook.com/dangtrunghieu1109">Facebook</a><br>
+                <a href="https://www.instagram.com/_11dthaw09_/">Instagram</a><br>
+                <a href="https://www.gmail.com">Gmail</a>
+            </div>
+        </div>
+    </div>
+    
+   
+</body>
+</html>
